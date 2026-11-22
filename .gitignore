@@ -1,0 +1,9 @@
+node_modules/
+release/
+runtime-config.local.json
+test-evidence.json
+browser.*.log
+.env
+.env.*
+.firebase/
+.firebaserc

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>BriefKompass</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='32'%3E🧭%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">✳</span>
+      <div>
+        <h1>BriefKompass</h1>
+        <p class="tag">Ihr Wegweiser durch Beispielbriefe</p>
+      </div>
+    </div>
+    <a class="language-link" href="/index-en.html" lang="en" target="_blank" rel="noopener">English (new tab)</a>
+    <nav class="tabs" role="tablist" aria-label="Bereiche">
+      <button role="tab" id="tab-pruefen" aria-selected="true" aria-controls="view-pruefen" tabindex="0" class="tab active" type="button">✉ <span>Brief prüfen</span></button>
+      <button role="tab" id="tab-aufgaben" aria-selected="false" aria-controls="view-aufgaben" tabindex="-1" class="tab" type="button">✓ <span>Aufgaben</span> <span id="taskBadge" class="badge">0</span></button>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <div class="intro-copy"><span class="eyebrow">EIN SCHRITT NACH DEM ANDEREN</span><h2>Briefe besser verstehen.</h2><p>Wichtige Stellen entdecken, offene Fragen sammeln und den nächsten Schritt im Blick behalten.</p><ol class="journey"><li>Beispiel wählen</li><li>Prüfung starten</li><li>Fundstellen ansehen</li></ol></div>
+    <div class="intro-art" aria-hidden="true">
+      <svg class="letter-guide" viewBox="0 0 220 180" focusable="false">
+        <ellipse cx="109" cy="165" rx="71" ry="8" fill="#4b318b" opacity=".12"/>
+        <circle cx="111" cy="88" r="76" fill="#e3d9fa"/>
+        <circle cx="111" cy="88" r="63" fill="#f4effd"/>
+        <g class="letter-guide-character" stroke="#3c2a5d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M51 98 37 111 26 105M166 98l13-15 10 7" fill="none"/>
+          <circle cx="25" cy="105" r="6" fill="#f3b9a0"/><circle cx="190" cy="90" r="6" fill="#f3b9a0"/>
+          <path d="M82 145l-4 13h15l3-13m28 0 3 13h15l-5-14" fill="#7862c0"/>
+          <rect x="52" y="50" width="114" height="96" rx="18" fill="#fffdf8"/>
+          <path d="M76 50c3-17 13-26 33-26s30 9 33 26z" fill="#7862c0"/><rect x="71" y="47" width="76" height="8" rx="4" fill="#5934aa"/><circle cx="109" cy="34" r="6" fill="#f5d79c" stroke="none"/>
+          <path d="M55 66 109 106 163 66" fill="#d6c6f3"/>
+          <path d="M55 130 88 101M163 130 130 101" fill="none" stroke="#b8a4d9" stroke-width="3"/>
+          <g class="letter-guide-eyes" fill="#3c2a5d" stroke="none"><ellipse cx="94" cy="91" rx="4" ry="5"/><ellipse cx="125" cy="91" rx="4" ry="5"/></g>
+          <path d="M99 111q10 8 20 0" fill="none" stroke-width="3"/>
+          <circle cx="82" cy="105" r="4" fill="#eeb4c1" stroke="none"/><circle cx="137" cy="105" r="4" fill="#eeb4c1" stroke="none"/>
+        </g>
+        <g class="letter-guide-sparkle" fill="#4b987f"><path d="M190 35l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><path d="M29 48l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="banner" role="note">
+    <span class="banner-icon" aria-hidden="true">i</span><div><strong>Ein sicherer Rahmen zum Ausprobieren</strong><br>Nur synthetische Beispiele eingeben – keine echten Namen, Adressen oder Aktenzeichen.
+    Ein Mensch prüft alle Ergebnisse am Original. Keine Rechts-, Diagnose- oder Behördenentscheidung.
+    Die Demo prüft mit Regeln. Im KI-Modus verarbeitet das Gerätemodell den Text lokal. Eine eingerichtete App-Check-Prüfung erhält keinen Brieftext.</div>
+  </div>
+
+  <details class="jury-guide" lang="en">
+    <summary><span>English guide</span><span class="jury-guide-hint">Controls, privacy and limitations</span></summary>
+    <p>BriefKompass is a German-language learning prototype for exploring synthetic letters. This guide explains the controls; <strong>the letter and results remain in German and are not translated by the app.</strong></p>
+    <div class="jury-guide-columns">
+      <div>
+        <h3>Try the rules-only demo</h3>
+        <ol>
+          <li>Under <strong>Beispielbrief laden (synthetisch)</strong>, choose a fictional sample: missing document, objection period, or unclear information.</li>
+          <li>Leave <strong>DEMO</strong> selected and press <strong>Brief prüfen</strong> (check letter). This mode uses rules, not AI.</li>
+          <li>Under <strong>Ergebnisse</strong> (results), inspect <strong>Anliegen</strong> (matters), <strong>Fristen</strong> (dates or time limits), and <strong>Offene Punkte</strong> (open points). Select <strong>Im Brief markieren</strong> to highlight a passage in the original.</li>
+          <li>Open <strong>Vor der Aufgabenübernahme prüfen</strong>, check the passage and context against the original, and confirm both checks before selecting <strong>Als Aufgabe übernehmen</strong>. Then open <strong>Aufgaben</strong> (tasks). A date is <strong>not</strong> copied into the task; after checking the original, a person can enter one manually. Tasks stay in this browser; storage availability may vary.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Two fictional examples to compare</h3>
+        <p><strong>Nachweis fehlt:</strong> a missing document and a candidate date of 15 January 2027; the letter refers to an attachment that is not included.</p>
+        <p><strong>Unklare Angaben:</strong> a relative period of 14 days; its start and end need checking, and no reference number is detected. The app does not calculate a due date.</p>
+        <h3>Privacy, modes and limits</h3>
+        <p>Use synthetic examples only. Review every finding against the original. This prototype gives no legal advice or official decision.</p>
+        <ul>
+          <li><strong>DEMO:</strong> rule-based; no AI model or letter transmission.</li>
+          <li><strong>Lokal:</strong> device-only inference via the Firebase AI Logic SDK. The demo remains available if Chrome cannot run the model.</li>
+        </ul>
+        <p>A successful device result shows <strong>inferenceSource: on_device</strong>. A matching quote does not establish that an AI claim is true.</p>
+      </div>
+    </div>
+  </details>
+
+  <main id="main" tabindex="-1">
+    <section id="view-pruefen" role="tabpanel" aria-labelledby="tab-pruefen" tabindex="0">
+      <div class="grid">
+        <div class="card input-card">
+          <div class="card-heading"><span class="step-number" aria-hidden="true">1</span><div><span class="section-kicker">LOS GEHT’S</span><h2>Brief auswählen</h2></div></div>
+          <p class="card-description">Starten Sie mit einem Beispiel oder geben Sie einen fiktiven Brieftext ein.</p>
+          <label for="sample">Beispielbrief laden (synthetisch)</label>
+          <select id="sample"></select>
+
+          <label for="letter">Brieftext</label>
+          <textarea id="letter" rows="14" spellcheck="false"></textarea>
+
+          <fieldset>
+            <legend>Wie möchten Sie prüfen?</legend>
+            <label class="radio"><input type="radio" name="mode" value="demo" checked> <span><strong>DEMO</strong> – regelbasierte Vorschau, keine KI</span></label>
+            <label class="radio"><input type="radio" name="mode" value="on_device"> <span><strong>Lokal</strong> – KI auf diesem Gerät</span></label>
+          </fieldset>
+
+          <button id="check" class="primary" type="button">Brief prüfen</button>
+          <div id="status" class="status info" aria-live="polite">Bereit. Wählen Sie einen Modus und starten Sie die Prüfung.</div>
+
+          <details class="env">
+            <summary>Status der Umgebung</summary>
+            <div id="envstatus"></div>
+          </details>
+        </div>
+
+        <div class="card" id="results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="view-aufgaben" role="tabpanel" aria-labelledby="tab-aufgaben" tabindex="0" hidden>
+      <div class="card" id="tasks"></div>
+    </section>
+  </main>
+
+  <footer>BriefKompass · Lernprototyp für synthetische Beispiele</footer>
+  <script src="runtime-config.js"></script>
+  <script type="module" src="dist/app.js"></script>
+</body>
+</html>

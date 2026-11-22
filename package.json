@@ -1,0 +1,19 @@
+{
+  "name": "briefkompass",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "BriefKompass local letter review through Firebase AI Logic on-device inference",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test.mjs",
+    "start": "node serve.mjs"
+  },
+  "dependencies": {
+    "firebase": "^13.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "license": "Apache-2.0"
+}

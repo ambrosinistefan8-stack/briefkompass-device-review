@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>BriefKompass</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='32' font-size='32'%3E🧭%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">✳</span>
+      <div>
+        <h1>BriefKompass</h1>
+        <p class="tag">Your guide through sample letters</p>
+      </div>
+    </div>
+    <a class="language-link" href="/index.html" lang="de" target="_blank" rel="noopener">Deutsch (neuer Tab)</a>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" id="tab-pruefen" aria-selected="true" aria-controls="view-pruefen" tabindex="0" class="tab active" type="button">✉ <span>Review letter</span></button>
+      <button role="tab" id="tab-aufgaben" aria-selected="false" aria-controls="view-aufgaben" tabindex="-1" class="tab" type="button">✓ <span>Tasks</span> <span id="taskBadge" class="badge">0</span></button>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <div class="intro-copy"><span class="eyebrow">ONE STEP AT A TIME</span><h2>Understand letters better.</h2><p>Find passages to review, collect open questions and keep track of possible next steps.</p><ol class="journey"><li>Choose an example</li><li>Run the review</li><li>Review passages</li></ol></div>
+    <div class="intro-art" aria-hidden="true">
+      <svg class="letter-guide" viewBox="0 0 220 180" focusable="false">
+        <ellipse cx="109" cy="165" rx="71" ry="8" fill="#4b318b" opacity=".12"/>
+        <circle cx="111" cy="88" r="76" fill="#e3d9fa"/>
+        <circle cx="111" cy="88" r="63" fill="#f4effd"/>
+        <g class="letter-guide-character" stroke="#3c2a5d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M51 98 37 111 26 105M166 98l13-15 10 7" fill="none"/>
+          <circle cx="25" cy="105" r="6" fill="#f3b9a0"/><circle cx="190" cy="90" r="6" fill="#f3b9a0"/>
+          <path d="M82 145l-4 13h15l3-13m28 0 3 13h15l-5-14" fill="#7862c0"/>
+          <rect x="52" y="50" width="114" height="96" rx="18" fill="#fffdf8"/>
+          <path d="M76 50c3-17 13-26 33-26s30 9 33 26z" fill="#7862c0"/><rect x="71" y="47" width="76" height="8" rx="4" fill="#5934aa"/><circle cx="109" cy="34" r="6" fill="#f5d79c" stroke="none"/>
+          <path d="M55 66 109 106 163 66" fill="#d6c6f3"/>
+          <path d="M55 130 88 101M163 130 130 101" fill="none" stroke="#b8a4d9" stroke-width="3"/>
+          <g class="letter-guide-eyes" fill="#3c2a5d" stroke="none"><ellipse cx="94" cy="91" rx="4" ry="5"/><ellipse cx="125" cy="91" rx="4" ry="5"/></g>
+          <path d="M99 111q10 8 20 0" fill="none" stroke-width="3"/>
+          <circle cx="82" cy="105" r="4" fill="#eeb4c1" stroke="none"/><circle cx="137" cy="105" r="4" fill="#eeb4c1" stroke="none"/>
+        </g>
+        <g class="letter-guide-sparkle" fill="#4b987f"><path d="M190 35l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><path d="M29 48l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="banner" role="note">
+    <span class="banner-icon" aria-hidden="true">i</span><div><strong>A learning prototype for fictional letters</strong><br>Use synthetic examples only – no real names, addresses or case numbers.
+    A person must check every result against the original. This app makes no legal, diagnostic or official decision.
+    The demo uses rules. In AI mode the device model processes the text locally. A configured App Check session does not receive letter text.</div>
+  </div>
+
+  <details class="jury-guide" lang="en">
+    <summary><span>About this English interface</span><span class="jury-guide-hint">Content, privacy and limitations</span></summary>
+    <p>The controls are in English. <strong>The fictional letter, its quoted passages and generated findings remain in German; the app does not translate them.</strong></p>
+    <p>Try the rules-only demo with a fictional letter. The missing-document example includes a possible date and refers to a missing attachment. The unclear-information example mentions 14 days without a start date. All findings need checking against the original.</p>
+    <p>Suggested tasks never receive an automatic due date. Device mode uses Firebase AI Logic and reports <strong>inferenceSource: on_device</strong> when the Chrome model is available.</p>
+  </details>
+
+  <main id="main" tabindex="-1">
+    <section id="view-pruefen" role="tabpanel" aria-labelledby="tab-pruefen" tabindex="0">
+      <div class="grid">
+        <div class="card input-card">
+          <div class="card-heading"><span class="step-number" aria-hidden="true">1</span><div><span class="section-kicker">LET’S GET STARTED</span><h2>Choose a letter</h2></div></div>
+          <p class="card-description">Choose an example or enter a fictional letter in German.</p>
+          <label for="sample">Load a fictional sample</label>
+          <select id="sample"></select>
+
+          <label for="letter">Letter text (German)</label>
+          <textarea id="letter" rows="14" spellcheck="false" lang="de"></textarea>
+
+          <fieldset>
+            <legend>How would you like to review it?</legend>
+            <label class="radio"><input type="radio" name="mode" value="demo" checked> <span><strong>DEMO</strong> – rules-only preview, no AI</span></label>
+            <label class="radio"><input type="radio" name="mode" value="on_device"> <span><strong>On-device AI</strong> – review on this device</span></label>
+          </fieldset>
+
+          <button id="check" class="primary" type="button">Review letter</button>
+          <div id="status" class="status info" aria-live="polite">Ready. Select a mode and start the review.</div>
+
+          <details class="env">
+            <summary>Environment status</summary>
+            <div id="envstatus"></div>
+          </details>
+        </div>
+
+        <div class="card" id="results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="view-aufgaben" role="tabpanel" aria-labelledby="tab-aufgaben" tabindex="0" hidden>
+      <div class="card" id="tasks"></div>
+    </section>
+  </main>
+
+  <footer>BriefKompass · learning prototype for fictional examples</footer>
+  <script src="runtime-config.js"></script>
+  <script type="module" src="dist/app-en.js"></script>
+</body>
+</html>
